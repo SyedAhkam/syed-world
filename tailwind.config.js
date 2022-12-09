@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -21,7 +23,11 @@ module.exports = {
       white: "#c0caf5",
       black: "#0f0f14",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        mono: ["Fira Code", ...defaultTheme.fontFamily.mono],
+      },
+    },
   },
   plugins: [],
 };

@@ -1,7 +1,9 @@
+import Prompt from "../components/common/prompt";
+
 export default function Header() {
   return (
     <header>
-      <p>I am header</p>
+      <Prompt />
     </header>
   );
 }

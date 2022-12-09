@@ -15,9 +15,11 @@ export default function RootLayout({
       */}
       <head />
       <body className="bg-background">
-        <Header />
-        {children}
-        <Footer />
+        <div className="container mx-16 my-16 flex-auto flex-col">
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
