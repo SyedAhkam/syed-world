@@ -38,7 +38,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: optional;
-    src: url(/static/fonts/FiraCode/semibold-mono.ttf) format("truetype");
+    src: url(/static/fonts/FiraCode/bold-mono.ttf) format("truetype");
   }
 
   @font-face {
@@ -56,4 +56,24 @@
 
 html {
   color-scheme: dark; /* force dark mode for now */
+}
+
+.cursor-box em:after {
+  content: "";
+  width: 5px;
+  height: 24px;
+  background: theme(colors.foreground);
+  display: inline-block;
+}
+
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+
+.cursor-box em:after {
+    /*code commented for brevity*/
+    animation: cursor-blink 1.5s steps(2) infinite;
 }
