@@ -16,7 +16,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="fixed bottom-8 flex w-screen flex-row items-stretch justify-between justify-items-stretch pr-16">
+    <footer className="fixed bottom-8 mx-16 flex w-screen flex-row items-stretch justify-between justify-items-stretch pr-16">
       <div className="flex flex-row space-x-8 text-xl">
         {destinations.map((destination) => (
           <Link

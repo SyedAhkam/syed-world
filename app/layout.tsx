@@ -15,7 +15,7 @@ export default function RootLayout({
       */}
       <head />
       <body className="bg-background">
-        <div className="mx-16 my-16 min-h-screen flex-auto flex-col">
+        <div className="min-h-screen w-full flex-auto flex-col">
           <Header />
           <main>{children}</main>
           <Footer />
