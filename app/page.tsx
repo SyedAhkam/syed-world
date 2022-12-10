@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="container mx-16 my-16">
+    <div className="mx-16 my-16">
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <br />
       <h2 className="text-blue">Blue</h2>
