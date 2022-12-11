@@ -23,7 +23,7 @@ export default function Footer() {
 
   if (!isDesktop) {
     return (
-      <footer className="fixed bottom-2 flex w-screen flex-row items-stretch justify-between justify-items-stretch pr-8">
+      <footer className="fixed bottom-2 flex w-screen flex-row items-center justify-between justify-items-stretch pr-8">
         <PopoverDestinationMenu destinations={destinations} />
 
         {/* TODO: build socials menu responsive */}
