@@ -16,11 +16,10 @@ export default function Home() {
 
       <h2 className="my-8 text-5xl font-bold text-green">Syed Ahkam</h2>
       <br />
-      <p className="w-2/6 text-center font-medium text-foreground">
-        Four dollar toast try-hard church-key snackwave activated charcoal.
-        Plaid disrupt enamel pin poke DSA 3 wolf moon, authentic whatever
-        messenger bag. Four dollar toast try-hard church-key snackwave activated
-        charcoal.
+      <p className="w-2/6 text-center text-lg font-medium text-foreground">
+        I&apos;m a passionate comp-sci student who is a nerd for all things
+        software. Currently working on open-source and a few side-projects of my
+        own.
       </p>
     </div>
   );
