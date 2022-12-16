@@ -25,7 +25,7 @@ export default function PopoverDestinationMenu({
   return (
     <>
       <div className="flex flex-wrap">
-        <div className="w-full text-center">
+        <div className="w-full px-4 text-center">
           <button
             className="text-blue-500 bg-transparent active:bg-blue-600 rounded border border-solid border-blue px-6 py-3 font-bold outline-none transition-all duration-150 ease-linear hover:bg-blue focus:outline-none"
             type="button"

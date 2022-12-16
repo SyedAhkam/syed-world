@@ -1,6 +1,7 @@
 export default function Stdout() {
   return (
-    <div className="font-blue flex flex-col py-1 text-2xl text-foreground">
+    // <div className="font-blue flex flex-col py-1 text-2xl text-foreground">
+    <div className="font-blue lg:text=2xl flex flex-col py-1 text-lg text-foreground md:text-xl lg:text-2xl">
       <p>
         <span className="text-red">[*]</span> Initializing page renderer: v0.1
       </p>
