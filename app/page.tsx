@@ -3,7 +3,7 @@ import profilePic from "../public/static/img/profile.jpg";
 
 export default function Home() {
   return (
-    <div className="flex flex-col content-center items-center justify-center py-[6%]">
+    <div className="flex flex-col content-center items-center justify-center lg:py-[6%]">
       <div className="relative h-[180px] w-[180px] sm:h-[220px] sm:w-[220px] md:h-[260px] md:w-[260px] lg:h-[368px] lg:w-[368px]">
         <Image
           src={profilePic}
