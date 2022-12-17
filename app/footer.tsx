@@ -1,17 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import PopoverDestinationMenu from "../components/footer/PopoverDestinationMenu";
 import useMediaQuery from "../hooks/useMediaQuery";
 
 export default function Footer() {
   const isDesktop = useMediaQuery("(min-width: 768px)");
+  const pathName = usePathname();
 
   const destinations = [
-    { name: "Home", path: "/", isActive: true },
-    { name: "Posts", path: "/posts", isActive: false },
-    { name: "About Me", path: "/about", isActive: false },
-    { name: "Contact", path: "/contact", isActive: false },
+    { name: "Home", path: "/", isActive: pathName === "/" },
+    { name: "Posts", path: "/posts", isActive: pathName === "/posts" },
+    { name: "About Me", path: "/about", isActive: pathName === "/about" },
+    { name: "Contact", path: "/contact", isActive: pathName === "/contact" },
   ];
 
   const socials = [
