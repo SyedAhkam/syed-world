@@ -25,7 +25,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        mono: ["Fira Code", ...defaultTheme.fontFamily.mono],
+        mono: ["var(--font-firacode)", ...defaultTheme.fontFamily.mono],
       },
     },
   },
