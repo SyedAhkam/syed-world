@@ -23,7 +23,7 @@ export default function Header() {
   };
 
   return (
-    <header className="mx-16 my-16">
+    <header className="mx-8 my-8 md:mx-16 md:my-16">
       <Prompt exec={getPageFromPath()} />
       <Stdout page={getPageFromPath()} />
     </header>
