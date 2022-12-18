@@ -13,7 +13,7 @@ export default function PostListing({
 }) {
   return (
     <div className="flex h-1/5 flex-col justify-center space-y-2 border-b-2 border-dotted px-4 text-xl">
-      <p className="text-blue">{`${category}/${title}`}</p>
+      <p className="font-bold text-blue">{`${category}/${title}`}</p>
 
       <div className="w-3/5">
         <p className="text-foreground">{subtitle}</p>
