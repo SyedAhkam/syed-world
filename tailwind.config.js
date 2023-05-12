@@ -1,33 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    colors: {
-      background: "#0f0f14",
-      foreground: "#c0caf5",
-      selection: "#7aa2f7", // same as blue
-      comment: "#5b6474",
-      green: "#9ece6a",
-      blue: "#7aa2f7",
-      magenta: "#bb9af7",
-      red: "#f7768e",
-      yellow: "#e0af68",
-      cyan: "#7dcfff",
-      white: "#c0caf5",
-      black: "#0f0f14",
-    },
     extend: {
-      fontFamily: {
-        mono: ["var(--font-firacode)", ...defaultTheme.fontFamily.mono],
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
   },
   plugins: [],
-};
+}
