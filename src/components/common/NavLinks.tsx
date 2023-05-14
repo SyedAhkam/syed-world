@@ -7,10 +7,10 @@ export default function NavLinks() {
   const pathName = usePathname();
 
   const destinations = [
-    { name: "Home", path: "/", isActive: pathName === "/" },
-    { name: "Posts", path: "/posts", isActive: pathName === "/posts" },
-    { name: "About Me", path: "/about", isActive: pathName === "/about" },
-    { name: "Contact", path: "/contact", isActive: pathName === "/contact" },
+    { name: "Home", path: "/" },
+    { name: "Posts", path: "/posts" },
+    { name: "About Me", path: "/about" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
@@ -20,7 +20,7 @@ export default function NavLinks() {
           key={idx}
           href={destination.path}
           className={`${
-            destination.isActive ? "text-foreground" : "text-white"
+            destination.path == pathName ? "text-foreground" : "text-white"
           } text-xl hover:underline`}
         >
           {destination.name}
