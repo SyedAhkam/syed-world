@@ -1,6 +1,6 @@
 import { Fira_Code } from "next/font/google";
 
-export const fira_code = Fira_Code({
+export const firaCode = Fira_Code({
   subsets: ["latin"],
   variable: "--font-fira-code",
 });

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { fira_code } from "@/fonts";
+import { firaCode } from "@/fonts";
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${fira_code.variable}`} data-theme="tokyo-night">
+      <body className={`${firaCode.variable}`} data-theme="tokyo-night">
         <Header />
         <main>{children}</main>
         <Footer />
