@@ -22,11 +22,9 @@ export default function Home() {
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
-  console.log(posts);
-
   return (
-    <div className="mx-auto max-w-xl py-8">
-      <h1 className="mb-8 text-center text-2xl font-black">
+    <div className="py-8 bg-background h-[100vh] w-[100vw]">
+      <h1 className="mb-8 text-center text-2xl text-foreground">
         Next.js + Contentlayer Example
       </h1>
       {posts.map((post, idx) => (
