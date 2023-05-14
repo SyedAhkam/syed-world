@@ -12,7 +12,7 @@ module.exports = {
     createThemes({
       "tokyo-night": {
         foreground: "#c0caf5",
-        background: "#1a1b26",
+        background: "#0f0f14",
         red: "#f7768e",
         orange: "#ff9e64",
         yellow: "#e0af68",
@@ -22,8 +22,8 @@ module.exports = {
         pink: "#bb9af7",
       },
       "tokyo-night-light": {
-        foreground: "#1a1b26",
-        background: "#f0f4f8",
+        foreground: "#0f0f14",
+        background: "#c0caf5",
         red: "#f52a65",
         orange: "#b15c00",
         yellow: "#8c6c3e",

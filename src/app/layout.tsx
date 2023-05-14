@@ -1,9 +1,7 @@
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
 
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { fira_mono } from "@/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -21,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className} data-theme="tokyo-night">
+      <body className={fira_mono.className} data-theme="tokyo-night">
         {children}
       </body>
     </html>
