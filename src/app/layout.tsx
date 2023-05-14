@@ -1,7 +1,11 @@
 import { Metadata } from "next";
 
+import { fira_code } from "@/fonts";
+
+import Header from "./Header";
+import Footer from "./Footer";
+
 import "./globals.css";
-import { fira_mono } from "@/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -19,8 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={fira_mono.className} data-theme="tokyo-night">
-        {children}
+      <body className={`${fira_code.variable}`} data-theme="tokyo-night">
+        <Header />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

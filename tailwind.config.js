@@ -1,3 +1,4 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
 const { createThemes } = require("tw-colors");
 
 /** @type {import('tailwindcss').Config} */
@@ -7,7 +8,13 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   variants: {},
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        mono: ["var(--font-fira-code)", ...defaultTheme.fontFamily.mono],
+      },
+    },
+  },
   plugins: [
     createThemes({
       "tokyo-night": {
@@ -17,6 +24,7 @@ module.exports = {
         orange: "#ff9e64",
         yellow: "#e0af68",
         green: "#9ece6a",
+        blue: "#7aa2f7",
         purple: "#9d7cd8",
         cyan: "#7dcfff",
         pink: "#bb9af7",
@@ -28,6 +36,7 @@ module.exports = {
         orange: "#b15c00",
         yellow: "#8c6c3e",
         green: "#587539",
+        blue: "#134eb2",
         purple: "#7847bd",
         cyan: "#007197",
         pink: "#9854f1",
