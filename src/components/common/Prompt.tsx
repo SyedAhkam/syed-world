@@ -11,7 +11,7 @@ export default function Prompt() {
 
   return (
     <div className="flex flex-col">
-      <div className="inline-flex flex-row text-2xl">
+      <div className="inline-flex flex-row text-xl md:text-2xl">
         <p className="text-green">guest@</p>
         <p className="text-white">syed-world</p>
 

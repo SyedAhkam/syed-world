@@ -22,7 +22,7 @@ export default function ThemeSwitcher() {
   }, [theme]);
 
   return (
-    <div className="flex flex-row space-x-2">
+    <div className="hidden flex-row space-x-2 md:flex">
       {themes.map((t, idx) => (
         <button
           key={idx}

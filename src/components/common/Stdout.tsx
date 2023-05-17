@@ -16,7 +16,7 @@ export default function Stdout() {
   ];
 
   return (
-    <div className="flex flex-col text-xl">
+    <div className="hidden flex-col md:flex md:text-xl">
       {messages.map((message, index) => (
         <p key={index}>
           <span className="text-red">[*]</span> {message}

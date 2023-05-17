@@ -14,18 +14,22 @@ export default function NavLinks() {
   ];
 
   return (
-    <div className="flex flex-none flex-row gap-8">
-      {destinations.map((destination, idx) => (
-        <Link
-          key={idx}
-          href={destination.path}
-          className={`${
-            destination.path == pathName ? "text-foreground" : "text-white"
-          } text-xl hover:underline`}
-        >
-          {destination.name}
-        </Link>
-      ))}
-    </div>
+    <>
+      <div className="flex flex-row md:hidden">M</div>
+
+      <div className="hidden flex-none flex-row gap-8 md:flex">
+        {destinations.map((destination, idx) => (
+          <Link
+            key={idx}
+            href={destination.path}
+            className={`${
+              destination.path == pathName ? "text-foreground" : "text-white"
+            } text-xl hover:underline`}
+          >
+            {destination.name}
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
