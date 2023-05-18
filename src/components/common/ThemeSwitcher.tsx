@@ -3,7 +3,11 @@
 import { useEffect } from "react";
 import useLocalStorage from "use-local-storage";
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher({
+  embedInMobile = false,
+}: {
+  embedInMobile?: boolean;
+}) {
   const [theme, setTheme] = useLocalStorage("theme", "tokyo-night");
 
   const themes = [
@@ -22,12 +26,16 @@ export default function ThemeSwitcher() {
   }, [theme]);
 
   return (
-    <div className="hidden flex-row space-x-2 md:flex">
+    <div
+      className={`${
+        !embedInMobile ? "hidden md:flex" : "flex"
+      } flex-row space-x-2`}
+    >
       {themes.map((t, idx) => (
         <button
           key={idx}
           onClick={() => setTheme(t.value)}
-          className={`text-xl ${
+          className={`${!embedInMobile ? "text-xl" : ""} ${
             theme == t.value ? "text-foreground" : "text-white"
           } hover:underline`}
         >

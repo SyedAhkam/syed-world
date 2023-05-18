@@ -11,6 +11,7 @@ import {
 } from "@floating-ui/react";
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const destinations = [
   { name: "Home", path: "/" },
@@ -56,6 +57,9 @@ function MobileMenu({ children }: { children: React.ReactNode }) {
           className="flex flex-col items-center gap-4 rounded-sm bg-background p-4 shadow-md drop-shadow"
         >
           {children}
+
+          {/* ThemeSwitcher for mobile */}
+          <ThemeSwitcher embedInMobile={true} />
         </div>
       )}
     </>
