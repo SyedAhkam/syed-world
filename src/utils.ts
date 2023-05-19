@@ -9,6 +9,6 @@ export const getPageFromPath = (pathName: string) => {
     case "/contact":
       return "contact";
     default:
-      return "404";
+      return pathName.slice(1);
   }
 };
