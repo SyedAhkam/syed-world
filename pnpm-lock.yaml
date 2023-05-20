@@ -49,6 +49,9 @@ dependencies:
   react-icons:
     specifier: ^4.8.0
     version: 4.8.0(react@18.2.0)
+  react-toc:
+    specifier: ^3.1.0
+    version: 3.1.0(react-dom@18.2.0)(react@18.2.0)
   reading-time:
     specifier: ^1.5.0
     version: 1.5.0
@@ -4169,6 +4172,17 @@ packages:
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
+
+  /react-toc@3.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-JPvMScVqu8NuguplaM74lerkXVh4ASnnF6vrjUoHS0fTxOsNrLJEagwdfTXopY3iBMAuOFx9pOwuRYi8UfL4wQ==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react@18.2.0:
