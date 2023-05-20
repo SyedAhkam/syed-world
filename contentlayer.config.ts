@@ -1,5 +1,10 @@
 import { defineDocumentType, makeSource } from "@contentlayer/source-files";
 import readingTime from "reading-time";
+import remarkGfm from "remark-gfm";
+import remarkSlug from "remark-slug";
+import remarkAutolinkHeadings from "remark-autolink-headings";
+import remarkLint from "remark-lint";
+import rehypeHighlight from "rehype-highlight";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -21,4 +26,11 @@ export const Post = defineDocumentType(() => ({
   },
 }));
 
-export default makeSource({ contentDirPath: "content", documentTypes: [Post] });
+export default makeSource({
+  contentDirPath: "content",
+  documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkGfm, remarkSlug, remarkAutolinkHeadings, remarkLint],
+    rehypePlugins: [rehypeHighlight],
+  },
+});

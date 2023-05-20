@@ -16,8 +16,8 @@ module.exports = {
     },
   },
   plugins: [
-    createThemes({
-      "tokyo-night": {
+    createThemes(({ light, dark }) => ({
+      "tokyo-night": dark({
         foreground: "#c0caf5",
         background: "#0f0f14",
         red: "#f7768e",
@@ -28,8 +28,8 @@ module.exports = {
         purple: "#9d7cd8",
         cyan: "#7dcfff",
         pink: "#bb9af7",
-      },
-      "tokyo-night-light": {
+      }),
+      "tokyo-night-light": light({
         foreground: "#0f0f14",
         background: "#c0caf5",
         red: "#f52a65",
@@ -40,7 +40,8 @@ module.exports = {
         purple: "#7847bd",
         cyan: "#007197",
         pink: "#9854f1",
-      },
-    }),
+      }),
+    })),
+    require("@tailwindcss/typography"),
   ],
 };
