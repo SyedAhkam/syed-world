@@ -17,6 +17,7 @@ export const Post = defineDocumentType(() => ({
     category: { type: "string", required: true },
     date: { type: "date", required: true },
     cover: { type: "string", required: false },
+    published: { type: "boolean", default: false },
   },
   computedFields: {
     readingTime: {

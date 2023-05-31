@@ -1,5 +1,6 @@
 import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
+
 import PostMetadata from "@/components/posts/PostMetadata";
 import PostContent from "@/components/posts/PostContent";
 
@@ -9,10 +10,12 @@ type Params = {
 };
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-    category: post.category,
-  }));
+  return allPosts
+    .filter((post) => post.published)
+    .map((post) => ({
+      slug: post.slug,
+      category: post.category,
+    }));
 }
 
 export function generateMetadata({ params }: { params: Params }) {
