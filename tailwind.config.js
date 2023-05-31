@@ -1,33 +1,47 @@
-/** @type {import('tailwindcss').Config} */
-
 const defaultTheme = require("tailwindcss/defaultTheme");
+const { createThemes } = require("tw-colors");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./app/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  variants: {},
   theme: {
-    colors: {
-      background: "#0f0f14",
-      foreground: "#c0caf5",
-      selection: "#7aa2f7", // same as blue
-      comment: "#5b6474",
-      green: "#9ece6a",
-      blue: "#7aa2f7",
-      magenta: "#bb9af7",
-      red: "#f7768e",
-      yellow: "#e0af68",
-      cyan: "#7dcfff",
-      white: "#c0caf5",
-      black: "#0f0f14",
-    },
     extend: {
       fontFamily: {
-        mono: ["var(--font-firacode)", ...defaultTheme.fontFamily.mono],
+        mono: ["var(--font-fira-code)", ...defaultTheme.fontFamily.mono],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    createThemes(({ light, dark }) => ({
+      "tokyo-night": dark({
+        foreground: "#c0caf5",
+        background: "#0f0f14",
+        red: "#f7768e",
+        orange: "#ff9e64",
+        yellow: "#e0af68",
+        green: "#9ece6a",
+        blue: "#7aa2f7",
+        purple: "#9d7cd8",
+        cyan: "#7dcfff",
+        pink: "#bb9af7",
+      }),
+      "tokyo-night-light": light({
+        foreground: "#0f0f14",
+        background: "#c0caf5",
+        red: "#f52a65",
+        orange: "#b15c00",
+        yellow: "#8c6c3e",
+        green: "#587539",
+        blue: "#134eb2",
+        purple: "#7847bd",
+        cyan: "#007197",
+        pink: "#9854f1",
+      }),
+    })),
+    require("@tailwindcss/typography"),
+  ],
 };
