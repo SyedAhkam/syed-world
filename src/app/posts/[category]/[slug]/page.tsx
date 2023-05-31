@@ -40,6 +40,10 @@ export default function PostView({ params }: { params: Params }) {
     notFound();
   }
 
+  if (post.published === false && process.env.NODE_ENV === "production") {
+    notFound();
+  }
+
   return (
     <div className="flex h-full flex-row md:mx-16 md:gap-8">
       <div className="flex flex-1 flex-col space-y-8 md:border md:border-dotted md:border-foreground">
