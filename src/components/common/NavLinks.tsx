@@ -16,8 +16,9 @@ import ThemeSwitcher from "./ThemeSwitcher";
 const destinations = [
   { name: "Home", path: "/" },
   { name: "Posts", path: "/posts" },
-  { name: "About Me", path: "/about" },
-  { name: "Contact", path: "/contact" },
+  // { name: "About Me", path: "/about" },
+  { name: "Resume", path: "/resume" },
+  { name: "Contact", path: "mailto:smahkam57@gmail.com" },
 ];
 
 function MobileMenu({ children }: { children: React.ReactNode }) {
