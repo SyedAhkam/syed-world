@@ -6,7 +6,7 @@ export default function Socials() {
     { icon: FaTwitter, path: "https://twitter.com/SyedAhkam1" },
     { icon: FaGithub, path: "https://github.com/SyedAhkam" },
     { icon: FaLinkedin, path: "https://linkedin.com/in/syedahkam/" },
-    { icon: FaDiscord, path: "#coming-soon" },
+    { icon: FaDiscord, path: "https://discord.gg/MTWutRPzrf" },
   ];
 
   return (
