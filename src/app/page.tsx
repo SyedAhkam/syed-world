@@ -14,9 +14,10 @@ export default function Home() {
       </h2>
 
       <p className="w-4/5 text-center text-base font-medium md:w-2/3 md:text-lg lg:w-1/2 xl:w-1/3">
-        I&apos;m a passionate comp-sci student who is a nerd for all things
-        software. Currently working on open-source and a few side-projects of my
-        own.
+        <span className="text-orange">20</span> y/o;<br/>
+        Rustacean 🦀;<br/>
+        FOSS Enthusiast;<br/>
+        Obsessed with <span className="text-purple">Tokyo</span> <span className="text-blue">Night</span>;
       </p>
     </div>
   );

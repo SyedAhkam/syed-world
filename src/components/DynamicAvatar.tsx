@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { useState  } from "react";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 
 export default function DynamicAvatar() {
   const avatars = [
-    { src: "/img/identicon.png", alt: "Author's identicon"  },
+    { src: "/img/identicon.png", alt: "Author's identicon", extendClass: "scale-110"  },
     { src: "/img/avatar.webp", alt: "Author's avatar"  },
   ]
 
@@ -29,7 +30,7 @@ export default function DynamicAvatar() {
         src={currAvatar.src}
         alt={currAvatar.alt}
         fill
-        className="object-cover object-center scale-110"
+        className={clsx("object-cover object-center", currAvatar.extendClass)}
         onClick={(() => setCurrAvatarIdx((prev) => prev === 0 ? 1 : 0))}
       />
     </motion.div>
