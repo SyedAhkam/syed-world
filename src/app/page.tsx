@@ -1,15 +1,12 @@
 import Image from "next/image";
 
+import DynamicAvatar from "@/components/DynamicAvatar";
+
 export default function Home() {
   return (
     <div className="flex h-full flex-col items-center justify-center space-y-8 pb-12">
-      <div className="relative flex h-52 w-52 flex-col items-center justify-center overflow-hidden rounded-full md:h-60 md:w-60 lg:h-80 lg:w-80">
-        <Image
-          src="/img/avatar.webp"
-          alt="Author's avatar image"
-          fill
-          className="object-cover"
-        />
+      <div className="relative flex h-52 w-52 flex-col items-center justify-center overflow-hidden rounded-full md:h-60 md:w-60 lg:h-80 lg:w-80 border-2 border-dotted border-blue">
+        <DynamicAvatar />
       </div>
 
       <h2 className="text-2xl font-bold text-green md:text-4xl lg:text-5xl">
