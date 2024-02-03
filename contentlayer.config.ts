@@ -4,7 +4,6 @@ import remarkGfm from "remark-gfm";
 import remarkSlug from "remark-slug";
 import remarkAutolinkHeadings from "remark-autolink-headings";
 import remarkLint from "remark-lint";
-import rehypeHighlight from "rehype-highlight";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -32,6 +31,6 @@ export default makeSource({
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm, remarkSlug, remarkAutolinkHeadings, remarkLint],
-    rehypePlugins: [rehypeHighlight],
+    rehypePlugins: [],
   },
 });
