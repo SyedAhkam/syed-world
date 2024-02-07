@@ -11,10 +11,6 @@ export default function Stdout() {
 
   const messages = [
     {
-      text: "Site under construction",
-      type: "warning",
-    },
-    {
       text: "Initializing Page renderer: v0.1",
       type: "info",
     },
