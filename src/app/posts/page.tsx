@@ -1,15 +1,16 @@
 import PostListItem from "@/components/posts/PostListItem";
-import { allPosts } from "contentlayer/generated";
+import { posts as allPosts, Post } from "#content";
 import { compareDesc } from "date-fns";
 
 export default function Posts() {
-  let posts = allPosts.sort((a, b) =>
+  // Sort posts by publish date
+  let posts: Post[] = allPosts.sort((a, b) =>
     compareDesc(new Date(a.date), new Date(b.date))
   );
 
   // Filter out unpublished posts in production
   if (process.env.NODE_ENV === "production") {
-    posts = posts.filter((post) => post.published);
+    posts = posts.filter((post) => !post.draft);
   }
 
   return (

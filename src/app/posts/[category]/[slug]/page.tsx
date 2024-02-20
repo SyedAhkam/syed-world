@@ -1,4 +1,4 @@
-import { allPosts } from "contentlayer/generated";
+import { posts as allPosts } from "#content";
 import { notFound } from "next/navigation";
 
 import PostMetadata from "@/components/posts/PostMetadata";
@@ -11,7 +11,7 @@ type Params = {
 
 export async function generateStaticParams() {
   return allPosts
-    .filter((post) => post.published)
+    .filter((post) => !post.draft)
     .map((post) => ({
       slug: post.slug,
       category: post.category,
@@ -23,7 +23,7 @@ export function generateMetadata({ params }: { params: Params }) {
     (post) => post.slug === params.slug && post.category === params.category
   );
 
-  if (!post) return;
+  if (!post) return {};
 
   return {
     title: post?.title,
@@ -40,7 +40,7 @@ export default function PostView({ params }: { params: Params }) {
     notFound();
   }
 
-  if (post.published === false && process.env.NODE_ENV === "production") {
+  if (post.draft && process.env.NODE_ENV === "production") {
     notFound();
   }
 

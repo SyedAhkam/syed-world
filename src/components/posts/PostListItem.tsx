@@ -1,7 +1,7 @@
-import { Post } from "contentlayer/generated";
+import { Post } from "#content";
 import { IoMdCalendar } from "react-icons/io";
 import { MdTimelapse } from "react-icons/md";
-import { formatRelative, subDays } from "date-fns";
+import { formatRelative } from "date-fns";
 import Link from "next/link";
 
 export default function PostListItem({ post }: { post: Post }) {
@@ -25,7 +25,7 @@ export default function PostListItem({ post }: { post: Post }) {
           <div className="flex flex-row">
             <MdTimelapse className="mr-2 text-xl text-green" />
 
-            <p className="text-sm text-gray-500">{post.readingTime}</p>
+            <p className="text-sm text-gray-500">{post.metadata.readingTime} minute</p>
           </div>
         </div>
       </div>
