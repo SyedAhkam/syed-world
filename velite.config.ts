@@ -14,7 +14,7 @@ export default defineConfig({
           description: s.excerpt(),
           category: s.enum(["guide", "programming"]),
           date: s.isodate(),
-          //cover: s.image().optional(),
+          cover: s.image({ allowNonRelativePath: true  }).optional(),
           metadata: s.metadata(),
           content: s.mdx(),
           draft: s.boolean().default(false)

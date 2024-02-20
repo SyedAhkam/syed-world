@@ -1,4 +1,4 @@
-import { Post } from "contentlayer/generated";
+import { Post } from "#content";
 import { formatRelative } from "date-fns";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,14 +26,14 @@ export default function PostMetadata({ post }: { post: Post }) {
         <div className="flex flex-row items-center">
           <MdTimelapse className="mr-2 text-2xl text-green" />
 
-          <p className="text-sm text-gray-500">{post!.readingTime}</p>
+          <p className="text-sm text-gray-500">{post!.metadata.readingTime} min</p>
         </div>
       </div>
 
       {post!.cover && (
         <div className="relative h-64 w-full lg:h-96 xl:h-[30rem]">
           <Image
-            src={post!.cover!}
+            src={post!.cover!.src}
             alt={"Cover image for " + post!.title}
             fill
             className="rounded-xl object-cover"
