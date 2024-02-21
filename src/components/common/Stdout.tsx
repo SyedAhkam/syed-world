@@ -4,14 +4,14 @@ import { usePathname } from "next/navigation";
 
 import { getPageFromPath } from "@/utils";
 
-export default function Stdout() {
+export default function Stdout({ commitHash }: { commitHash: string }) {
   const pathName = usePathname();
 
   const page = getPageFromPath(pathName);
 
   const messages = [
     {
-      text: "Initializing Page renderer: v0.1",
+      text: <>Serving commit: <em>{commitHash}</em></>,
       type: "info",
     },
     {
