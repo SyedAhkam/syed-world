@@ -46,11 +46,11 @@ export default function PostView({ params }: { params: Params }) {
 
   return (
     <div className="flex h-full flex-row md:mx-16 md:gap-8">
-      <div className="flex flex-1 flex-col space-y-8 md:border md:border-dotted md:border-foreground">
+      <article className="flex flex-1 flex-col space-y-8 md:border md:border-dotted md:border-foreground">
         <PostMetadata post={post!} />
 
         <PostContent post={post!} />
-      </div>
+      </article>
 
       <div className="hidden flex-col border border-foreground p-4 md:flex md:min-w-[15%]">
         TOC
