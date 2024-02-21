@@ -8,7 +8,8 @@ async function getLatestCommitHash() {
       headers: {
         "Authorization": `token ${process.env.GITHUB_ACCESS_TOKEN}`,
         "Accept": "application/vnd.github.VERSION.sha"
-      }
+      },
+      cache: "force-cache"
     });
 
   return (await response.text()).slice(0, 7)
