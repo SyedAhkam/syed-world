@@ -29,7 +29,7 @@ const projects = defineCollection({
       tech: s.array(s.string())
     })
     .transform(async data => {
-      const commits = await getCommits(data.repo)
+      const commits = await getCommits(data.repo);
 
       return {
         ...data,
