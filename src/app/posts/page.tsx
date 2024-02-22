@@ -2,6 +2,10 @@ import PostListItem from "@/components/posts/PostListItem";
 import { posts as allPosts, Post } from "#content";
 import { compareDesc } from "date-fns";
 
+export const metadata = {
+  title: "Posts"
+}
+
 export default function Posts() {
   // Sort posts by publish date
   let posts: Post[] = allPosts.sort((a, b) =>

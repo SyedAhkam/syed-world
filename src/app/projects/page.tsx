@@ -3,6 +3,10 @@ import { projects as allProjects, Project } from "#content";
 import ProjectCard from "@/components/projects/ProjectCard";
 import { groupBy } from "@/utils";
 
+export const metadata = {
+  title: "Projects"
+}
+
 export default function Projects() {
   const projectsByCategory: Map<string, Project[]> = groupBy(allProjects, p => p.category);
 
