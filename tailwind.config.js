@@ -20,6 +20,7 @@ module.exports = {
       "tokyo-night": dark({
         foreground: "#c0caf5",
         background: "#0f0f14",
+        "background-alt": "#151521",
         red: "#f7768e",
         orange: "#ff9e64",
         yellow: "#e0af68",
@@ -32,6 +33,7 @@ module.exports = {
       "tokyo-night-light": light({
         foreground: "#0f0f14",
         background: "#c0caf5",
+        "background-alt": "#565a6e",
         red: "#f52a65",
         orange: "#b15c00",
         yellow: "#8c6c3e",

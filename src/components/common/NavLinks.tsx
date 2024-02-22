@@ -15,6 +15,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 
 const destinations = [
   { name: "Home", path: "/" },
+  { name: "Projects", path: "/projects" },
   { name: "Posts", path: "/posts" },
   // { name: "About Me", path: "/about" },
   { name: "Resume", path: "/resume" },
