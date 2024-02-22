@@ -25,7 +25,6 @@ const projects = defineCollection({
       name: s.string(),
       tagline: s.string(),
       repo: s.string(),
-      master_branch: s.string(),
       category: s.string(),
       tech: s.array(s.string())
     })

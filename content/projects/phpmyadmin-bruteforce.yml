@@ -1,0 +1,5 @@
+name: PHPMyAdmin Bruteforce
+tagline: Automated bruteforce of PHPMyAdmin
+repo: SyedAhkam/phpmyadmin-bruteforce
+category: Not sure if it works anymore
+tech: [rust]

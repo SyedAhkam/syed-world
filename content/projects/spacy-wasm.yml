@@ -1,0 +1,5 @@
+name: Spacy Wasm
+tagline: spaCy on the web
+repo: SyedAhkam/spacy-wasm
+category: Experiments
+tech: [python, wasm]

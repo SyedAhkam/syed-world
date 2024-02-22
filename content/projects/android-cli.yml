@@ -1,6 +1,5 @@
 name: Android CLI
 tagline: Create, build, and release Android apps faster without Android Studio.
 repo: SyedAhkam/android-cli
-master_branch: master
-category: Latest && Alive
+category: Latest
 tech: [rust, android]

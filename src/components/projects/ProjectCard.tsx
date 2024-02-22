@@ -4,6 +4,7 @@ import { MdStar } from "react-icons/md";
 import { LuExternalLink } from "react-icons/lu";
 import { FaPython, FaRust } from "react-icons/fa";
 import { MdAndroid } from "react-icons/md";
+import { SiTypescript, SiWebassembly, SiFlutter } from "react-icons/si";
 import { IconType } from "react-icons";
 
 import { Project } from "#content";
@@ -11,7 +12,10 @@ import { Project } from "#content";
 const techIconMap: { [key: string]: IconType } = {
   "rust": FaRust,
   "python": FaPython,
-  "android": MdAndroid
+  "android": MdAndroid,
+  "wasm": SiWebassembly,
+  "typescript": SiTypescript,
+  "flutter": SiFlutter
 }
 
 dayjs.extend(relativeTime);

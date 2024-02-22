@@ -1,0 +1,5 @@
+name: Sass Rocket Fairing
+tagline: A rocket fairing to compile sass files automagically on change
+repo: SyedAhkam/sass-rocket-fairing
+category: Maintained
+tech: [rust]

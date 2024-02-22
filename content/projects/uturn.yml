@@ -1,0 +1,5 @@
+name: Uturn
+tagline: A web framework to rollback and auto deploy services in one click.
+repo: ArgusOSS/Uturn-Web
+category: Co-Authored
+tech: [python]
