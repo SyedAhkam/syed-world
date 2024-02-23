@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://syed.world
+
+# Sitemaps
+Sitemap: https://syed.world/sitemap.xml
