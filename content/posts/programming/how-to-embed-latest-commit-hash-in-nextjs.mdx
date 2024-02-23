@@ -1,0 +1,153 @@
+---
+title: How to embed latest git commit hash in a Next.js Application?
+slug: how-to-embed-latest-commit-hash-in-nextjs
+category: programming
+date: 2024-02-23
+---
+
+<hr/>
+
+Good morning frens.
+
+Starting a series of posts based on the development of this site -- exactly where you're reading this. I've employed several new concepts into the site which I found cool.
+
+It blows my mind seeing the post workflow working smoothly even. As I write MDX in my current favorite editor ([doom emacs](https://github.com/doomemacs/doomemacs)), the text and the metadata is processed on each save directly into a json file using [velite](https://velite.js.org/) which is then transformed by Next.js at build time into raw HTML :fire:;
+
+## TOC
+
+## Retrieving the hash
+
+Now coming to the topic at hand. Let's explore a few ways of retrieving the hash.
+
+### 1. Call the `git` binary at build time
+
+If you aren't aware, there's this great git command which returns the `SHA` hash of the latest commit:
+
+```sh
+$ git rev-parse HEAD
+```
+
+__TIP__: Add `--short` to retrieve the 7 char long shortened version of the hash.
+
+__LIMITATIONS__: 1) You need to open a sub-shell. 2) Have to make sure the shell is opened in the same directory as the `.git` folder. 3) have to have `.git` as well, which you might not in cloud build environments like vercel.
+
+### 2. Ask Github (or Gitlab or equivalent) to share the latest remote commit info with us
+
+Assuming you use Github as your remote code storage / sharing platform, you could call their REST API or their GraphQL API to retrieve information about your repository.
+
+For example, their REST API exposes an endpoint named:
+
+```sh
+GET /repos/:owner/:repo/commits
+```
+
+Docs available [here](https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28#list-commits). NOTE: Auth is necessary for private repositories.
+
+This endpoint returns a list of `Commit` objects. Although what we're really interested is the object at index `0` (assuming commits are sorted by commit time) since that is the most recent commit.
+
+```ts
+const resp = await fetch(...);
+
+const latestCommit = (await resp.json())[0];
+```
+
+Now a commit object somewhat looks like this:
+
+```json
+  {
+    "url": "https://api.github.com/repos/octocat/Hello-World/commits/6dcb09b5b57875f334f61aebed695e2e4193db5e",
+    "sha": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+    "node_id": "MDY6Q29tbWl0NmRjYjA5YjViNTc4NzVmMzM0ZjYxYWViZWQ2OTVlMmU0MTkzZGI1ZQ==",
+    ...
+  }
+```
+
+We can now simply pluck out the `sha` field and we're done;
+
+**BUT WAIT**, This is quite a common thing to do, thus github has provided a shorthand for the above.
+
+If you provide a specific master branch name just after `/commits` and a specific `Accept` header value of `"application/vnd.github.VERSION.sha"` such that:
+
+```sh
+curl -s -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/{replace}/{replace}/commits/master"
+```
+
+All this would return is a simple text response of the 40 char long SHA hash. No need to deserialize as JSON either.
+
+```sha
+d92dbdc4edd783abea8fadce6c2f1f7c1c493140
+```
+
+__LIMITATIONS__: 1) You need to have the code in a remote repo in the first place 2) Local un-pushed commits aren't taken into consideration. 3) You have to do an API call 🤷‍♂️
+
+## Embed inside a Next.js react component
+
+### 1. Use `getStaticProps` [only pages router]
+
+[getStaticProps](https://nextjs.org/docs/pages/building-your-application/data-fetching/get-static-props) is a magic function that you could export from your route file which instructs Next.js to execute this code at build time and treat the outcome as static data throughout from there.
+
+```jsx
+export function getStaticProps() {
+  return {
+    props: {
+      latestCommitHash: retrieveHash() // depends on the method of your choice
+    }
+  }
+}
+
+export default function Page({ latestCommitHash }) {
+  return <>{latestCommitHash}</>
+}
+```
+
+### 2. Just directly retrieve inside your component! [RSC or App component only]
+
+```jsx
+export default function Page() {
+  const latestCommitHash = retrieveHash(); // your choice
+
+  return <>{latestCommitHash}</>
+}
+```
+
+React Server Components are smart enough to cache out the call to `retrieveHash` in a way that it is either executed just at build time or very infrequently on the server.
+
+Read Data Fetching docs [here](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating).
+
+If you're still skeptical, you can add a cache policy on the fetch calls as an extra measure.
+
+```js
+const resp = await fetch(..., {
+  cache: "force-cache"
+})
+```
+
+### 3. Use ENV variables at build time
+
+This might just be the simplest way: Modify your start script to include something like this:
+
+```json
+{
+  "scripts": {
+    "dev": "COMMIT_HASH=$(git rev-parse HEAD) next dev"
+  }
+}
+```
+
+And then proceed to use inside your components:
+
+```jsx
+export default function Page() {
+  const latestCommitHash = process.env.COMMIT_HASH:
+
+  return <>{latestCommitHash}</>
+}
+```
+
+## Tips
+
+- To get short hash from a long one, just slice into the first 7 characters:
+  ```ts
+  hash.slice(0, 7)
+  ```
+And that's the end of the post. Thanks for reading!
