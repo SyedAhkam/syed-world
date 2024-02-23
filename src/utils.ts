@@ -9,6 +9,12 @@ export const getPageFromPath = (pathName: string) => {
     case "/contact":
       return "contact";
     default:
+      if (pathName.startsWith("/posts")) {
+        const postSlug = pathName.split("/")[3];
+
+        return `post --slug ${postSlug}`;
+      }
+
       return pathName.slice(1);
   }
 };

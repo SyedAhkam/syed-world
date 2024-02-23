@@ -1,21 +1,11 @@
-"use client";
-
-import { usePathname } from "next/navigation";
-
-import { getPageFromPath } from "@/utils";
-
 export default function Stdout({ commitHash }: { commitHash: string }) {
-  const pathName = usePathname();
-
-  const page = getPageFromPath(pathName);
-
   const messages = [
     {
       text: <>Serving commit: <em>{commitHash}</em></>,
-      type: "info",
+      type: "warning",
     },
     {
-      text: `Loaded page: ${page}`,
+      text: `Loaded into memory`,
       type: "info",
     },
     {
