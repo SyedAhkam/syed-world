@@ -1,0 +1,5 @@
+name: ubi-cli
+tagline: Experimental CLI for interacting with Ubisoft
+repo: SyedAhkam/ubi-cli
+category: Experiments
+tech: [rust]
