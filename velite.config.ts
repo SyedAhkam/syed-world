@@ -17,6 +17,15 @@ const getCommits = async (repo: string) => {
   return await resp.json();
 }
 
+const pages = defineCollection({
+  name: "Page",
+  pattern: 'pages/*.md',
+  schema: s.object({
+    name: s.string(),
+    content: s.markdown()
+  })
+})
+
 const projects = defineCollection({
   name: 'Project',
   pattern: 'projects/*.yml',
@@ -60,7 +69,8 @@ const posts = defineCollection({
 export default defineConfig({
   collections: {
     posts,
-    projects
+    projects,
+    pages
   },
   mdx: {
     rehypePlugins: [rehypePrettyCode],

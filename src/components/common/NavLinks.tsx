@@ -17,9 +17,8 @@ const destinations = [
   { name: "Home", path: "/" },
   { name: "Projects", path: "/projects" },
   { name: "Posts", path: "/posts" },
-  // { name: "About Me", path: "/about" },
+  { name: "About", path: "/about" },
   { name: "Resume", path: "/resume" },
-  { name: "Contact", path: "mailto:smahkam57@gmail.com" },
 ];
 
 function MobileMenu({ children }: { children: React.ReactNode }) {
