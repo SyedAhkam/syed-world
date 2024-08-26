@@ -1,0 +1,5 @@
+name: Game Of Life 3D
+tagline: Yet another Conway's Game of Life implementation but in a 3D space
+repo: SyedAhkam/game-of-life-3d
+category: Latest
+tech: [rust]
