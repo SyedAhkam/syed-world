@@ -1,6 +1,7 @@
-import Image from "next/image";
-
 import DynamicAvatar from "@/components/DynamicAvatar";
+import dayjs from "dayjs";
+
+const age = -dayjs(new Date(2003, 10, 3)).diff(dayjs(), 'years');
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
       </h2>
 
       <p className="w-4/5 text-center text-base font-medium md:w-2/3 md:text-lg lg:w-1/2 xl:w-1/3">
-        <span className="text-orange">20</span> y/o;<br/>
+        <span className="text-orange">{ age }</span> y/o;<br/>
         Rustacean 🦀;<br/>
         FOSS Enthusiast;<br/>
         Obsessed with <span className="text-purple">Tokyo</span> <span className="text-blue">Night</span>;
