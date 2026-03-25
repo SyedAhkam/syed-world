@@ -1,10 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-/* Global theme-based overrides */
+/* Dark variant: applies when inside [data-theme="tokyo-night"] */
+@custom-variant dark (&:is([data-theme="tokyo-night"] *));
+
+@theme {
+  /* Tokyo Night (dark) — default theme */
+  --color-background: #0f0f14;
+  --color-background-alt: #151521;
+  --color-foreground: #c0caf5;
+  --color-red: #f7768e;
+  --color-orange: #ff9e64;
+  --color-yellow: #e0af68;
+  --color-green: #9ece6a;
+  --color-blue: #7aa2f7;
+  --color-purple: #9d7cd8;
+  --color-cyan: #7dcfff;
+  --color-pink: #bb9af7;
+}
+
+/* Tokyo Night Light theme overrides */
+@layer base {
+  [data-theme="tokyo-night-light"] {
+    --color-background: #c0caf5;
+    --color-background-alt: #565a6e;
+    --color-foreground: #0f0f14;
+    --color-red: #f52a65;
+    --color-orange: #b15c00;
+    --color-yellow: #8c6c3e;
+    --color-green: #587539;
+    --color-blue: #134eb2;
+    --color-purple: #7847bd;
+    --color-cyan: #007197;
+    --color-pink: #9854f1;
+  }
+}
+
+/* Global styles */
 body {
-  @apply bg-background text-foreground font-mono;
+  @apply bg-background text-foreground;
+  font-family: var(--font-fira-code), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 /* Code Highlighting */
@@ -32,7 +68,6 @@ body {
 
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
   background: rgba(200, 200, 255, 0.1);
-  /* @apply border-l-blue-400; */
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
