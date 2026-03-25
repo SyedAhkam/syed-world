@@ -1,9 +1,9 @@
 import { defineCollection, defineConfig, s } from 'velite';
 
 import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
 import remarkToc from 'remark-toc';
 import remarkEmoji from 'remark-emoji';
-import remarkSlug from 'remark-slug';
 
 const getCommits = async (repo: string) => {
   let resp = await fetch(`https://api.github.com/repos/${repo}/commits?page=1&per_page=1000`, { // 1000 is a good enough limit for now
@@ -63,7 +63,7 @@ export default defineConfig({
     projects
   },
   mdx: {
-    rehypePlugins: [rehypePrettyCode],
-    remarkPlugins: [remarkToc, remarkEmoji as any, remarkSlug]
+    rehypePlugins: [rehypeSlug, rehypePrettyCode],
+    remarkPlugins: [remarkToc, remarkEmoji as any]
   }
 })
