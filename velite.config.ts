@@ -49,7 +49,7 @@ const posts = defineCollection({
       description: s.excerpt(),
       category: s.enum(["guide", "programming"]),
       date: s.isodate(),
-      cover: s.image({ allowNonRelativePath: true  }).optional(),
+      cover: s.image().optional(),
       metadata: s.metadata(),
       content: s.mdx({gfm: true}),
       draft: s.boolean().default(false)

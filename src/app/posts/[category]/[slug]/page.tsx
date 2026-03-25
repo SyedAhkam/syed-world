@@ -18,7 +18,8 @@ export async function generateStaticParams() {
     }));
 }
 
-export function generateMetadata({ params }: { params: Params }) {
+export async function generateMetadata(props: { params: Promise<Params> }) {
+  const params = await props.params;
   const post = allPosts.find(
     (post) => post.slug === params.slug && post.category === params.category
   );
@@ -31,7 +32,8 @@ export function generateMetadata({ params }: { params: Params }) {
   };
 }
 
-export default function PostView({ params }: { params: Params }) {
+export default async function PostView(props: { params: Promise<Params> }) {
+  const params = await props.params;
   const post = allPosts.find(
     (post) => post.slug === params.slug && post.category === params.category
   );
