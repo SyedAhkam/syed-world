@@ -13,12 +13,28 @@ export default function ThemeSwitcher({
 
   const themes = [
     {
-      name: "dark",
+      name: "tokyo night dark",
       value: "tokyo-night",
     },
     {
-      name: "light",
+      name: "tokyo night light",
       value: "tokyo-night-light",
+    },
+    {
+      name: "gruvbox",
+      value: "gruvbox",
+    },
+    {
+      name: "catppuccin",
+      value: "catppuccin",
+    },
+    {
+      name: "github dark",
+      value: "github-dark",
+    },
+    {
+      name: "hacker",
+      value: "hacker",
     },
   ];
 
@@ -31,22 +47,18 @@ export default function ThemeSwitcher({
   }, [theme]);
 
   return (
-    <div
-      className={`${
-        !embedInMobile ? "hidden md:flex" : "flex"
-      } flex-row space-x-2`}
-    >
-      {themes.map((t, idx) => (
-        <button
-          key={idx}
-          onClick={() => setTheme(t.value)}
-          className={`${!embedInMobile ? "text-xl" : ""} ${
-            mounted && theme === t.value ? "text-foreground" : "text-muted"
-          } hover:underline`}
-        >
-          {t.name}
-        </button>
-      ))}
+    <div className={`${!embedInMobile ? "hidden md:flex" : "flex"}`}>
+      <select
+        value={mounted ? theme : "tokyo-night"}
+        onChange={(e) => setTheme(e.target.value)}
+        className={`${!embedInMobile ? "text-xl" : ""} bg-transparent text-muted hover:text-foreground cursor-pointer outline-none`}
+      >
+        {themes.map((t) => (
+          <option key={t.value} value={t.value} className="bg-background">
+            {t.name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

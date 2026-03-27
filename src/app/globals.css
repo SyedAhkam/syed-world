@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Dark variant: applies when inside [data-theme="tokyo-night"] */
-@custom-variant dark (&:is([data-theme="tokyo-night"] *));
+/* Dark variant: applies for all dark themes */
+@custom-variant dark (&:is([data-theme="tokyo-night"] *, [data-theme="gruvbox"] *, [data-theme="catppuccin"] *, [data-theme="github-dark"] *, [data-theme="hacker"] *));
 
 @theme {
   --font-prose: var(--font-fira-sans), system-ui, sans-serif;
@@ -40,6 +40,78 @@
   }
 }
 
+/* Hacker theme */
+@layer base {
+  [data-theme="hacker"] {
+    --color-background: #000000;
+    --color-background-alt: #0a0a0a;
+    --color-foreground: #00ff00;
+    --color-muted: #1a5c1a;
+    --color-red: #ff3333;
+    --color-orange: #ffaa00;
+    --color-yellow: #ccff00;
+    --color-green: #00ff00;
+    --color-blue: #00ccff;
+    --color-purple: #cc00ff;
+    --color-cyan: #00ffcc;
+    --color-pink: #ff00aa;
+  }
+}
+
+/* GitHub Dark theme */
+@layer base {
+  [data-theme="github-dark"] {
+    --color-background: #0d1117;
+    --color-background-alt: #161b22;
+    --color-foreground: #e6edf3;
+    --color-muted: #484f58;
+    --color-red: #ff7b72;
+    --color-orange: #ffa657;
+    --color-yellow: #e3b341;
+    --color-green: #7ee787;
+    --color-blue: #79c0ff;
+    --color-purple: #d2a8ff;
+    --color-cyan: #56d364;
+    --color-pink: #f778ba;
+  }
+}
+
+/* Gruvbox Dark theme */
+@layer base {
+  [data-theme="gruvbox"] {
+    --color-background: #282828;
+    --color-background-alt: #32302f;
+    --color-foreground: #ebdbb2;
+    --color-muted: #928374;
+    --color-red: #fb4934;
+    --color-orange: #fe8019;
+    --color-yellow: #fabd2f;
+    --color-green: #b8bb26;
+    --color-blue: #83a598;
+    --color-purple: #d3869b;
+    --color-cyan: #8ec07c;
+    --color-pink: #d3869b;
+  }
+}
+
+/* Catppuccin Mocha theme */
+@layer base {
+  [data-theme="catppuccin"] {
+    --color-background: #1e1e2e;
+    --color-background-alt: #181825;
+    --color-foreground: #cdd6f4;
+    --color-muted: #585b70;
+    --color-red: #f38ba8;
+    --color-orange: #fab387;
+    --color-yellow: #f9e2af;
+    --color-green: #a6e3a1;
+    --color-blue: #89b4fa;
+    --color-purple: #cba6f7;
+    --color-cyan: #89dceb;
+    --color-pink: #f5c2e7;
+  }
+}
+
 /* Global styles */
 body {
   @apply bg-background text-foreground;
@@ -50,6 +122,61 @@ body {
 /* Code Highlighting */
 [data-rehype-pretty-code-figure] pre {
   @apply px-0;
+}
+
+/* Shiki multi-theme switching via body[data-theme] */
+[data-rehype-pretty-code-figure] pre,
+[data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-tokyo-night);
+  background-color: var(--shiki-tokyo-night-bg);
+  font-style: var(--shiki-tokyo-night-font-style);
+  font-weight: var(--shiki-tokyo-night-font-weight);
+  text-decoration: var(--shiki-tokyo-night-text-decoration);
+}
+
+body[data-theme="tokyo-night-light"] [data-rehype-pretty-code-figure] pre,
+body[data-theme="tokyo-night-light"] [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-tokyo-night-light);
+  background-color: var(--shiki-tokyo-night-light-bg);
+  font-style: var(--shiki-tokyo-night-light-font-style);
+  font-weight: var(--shiki-tokyo-night-light-font-weight);
+  text-decoration: var(--shiki-tokyo-night-light-text-decoration);
+}
+
+body[data-theme="gruvbox"] [data-rehype-pretty-code-figure] pre,
+body[data-theme="gruvbox"] [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-gruvbox);
+  background-color: var(--shiki-gruvbox-bg);
+  font-style: var(--shiki-gruvbox-font-style);
+  font-weight: var(--shiki-gruvbox-font-weight);
+  text-decoration: var(--shiki-gruvbox-text-decoration);
+}
+
+body[data-theme="catppuccin"] [data-rehype-pretty-code-figure] pre,
+body[data-theme="catppuccin"] [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-catppuccin);
+  background-color: var(--shiki-catppuccin-bg);
+  font-style: var(--shiki-catppuccin-font-style);
+  font-weight: var(--shiki-catppuccin-font-weight);
+  text-decoration: var(--shiki-catppuccin-text-decoration);
+}
+
+body[data-theme="github-dark"] [data-rehype-pretty-code-figure] pre,
+body[data-theme="github-dark"] [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-github-dark);
+  background-color: var(--shiki-github-dark-bg);
+  font-style: var(--shiki-github-dark-font-style);
+  font-weight: var(--shiki-github-dark-font-weight);
+  text-decoration: var(--shiki-github-dark-text-decoration);
+}
+
+body[data-theme="hacker"] [data-rehype-pretty-code-figure] pre,
+body[data-theme="hacker"] [data-rehype-pretty-code-figure] code span {
+  color: var(--shiki-hacker);
+  background-color: var(--shiki-hacker-bg);
+  font-style: var(--shiki-hacker-font-style);
+  font-weight: var(--shiki-hacker-font-weight);
+  text-decoration: var(--shiki-hacker-text-decoration);
 }
 
 [data-rehype-pretty-code-figure] code {

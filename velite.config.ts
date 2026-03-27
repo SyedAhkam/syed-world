@@ -64,7 +64,16 @@ export default defineConfig({
     projects
   },
   mdx: {
-    rehypePlugins: [rehypeSlug, rehypePrettyCode],
+    rehypePlugins: [rehypeSlug, [rehypePrettyCode, {
+      theme: {
+        "tokyo-night": "tokyo-night",
+        "tokyo-night-light": "github-light",
+        "gruvbox": "gruvbox-dark-hard",
+        "catppuccin": "catppuccin-mocha",
+        "github-dark": "github-dark",
+        "hacker": "monokai",
+      },
+    }]],
     remarkPlugins: [remarkToc, remarkEmoji as any]
   }
 })

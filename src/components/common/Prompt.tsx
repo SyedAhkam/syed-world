@@ -11,12 +11,12 @@ export default function Prompt() {
 
   return (
     <div className="flex flex-col">
-      <div className="inline-flex flex-row text-xl md:text-2xl">
+      <div className="flex min-w-0 flex-row text-sm md:text-2xl">
         <p className="text-green">guest@</p>
         <p className="text-foreground">syed-world</p>
 
         <p className="ml-2 text-green">{"~>"}</p>
-        <p className="ml-2 text-blue">./{page}</p>
+        <p className="ml-2 truncate text-blue">./{page}</p>
       </div>
     </div>
   );
