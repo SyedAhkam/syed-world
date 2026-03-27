@@ -7,8 +7,9 @@ import clsx from "clsx";
 
 export default function DynamicAvatar() {
   const avatars = [
+    { src: "/avatar.jpg", alt: "Author's photo"  },
     { src: "/img/identicon.png", alt: "Author's identicon", extendClass: "scale-110"  },
-    { src: "/img/avatar.webp", alt: "Author's avatar"  },
+    { src: "/jumping_cat.gif", alt: "Jumping cat"  },
   ]
 
   const [currAvatarIdx, setCurrAvatarIdx] = useState(0);
@@ -30,8 +31,9 @@ export default function DynamicAvatar() {
         src={currAvatar.src}
         alt={currAvatar.alt}
         fill
+        unoptimized={currAvatar.src.endsWith(".gif")}
         className={clsx("object-cover object-center", currAvatar.extendClass)}
-        onClick={(() => setCurrAvatarIdx((prev) => prev === 0 ? 1 : 0))}
+        onClick={(() => setCurrAvatarIdx((prev) => (prev + 1) % avatars.length))}
       />
     </motion.div>
   )

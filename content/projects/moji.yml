@@ -1,5 +1,5 @@
 name: Moji
 tagline: An emoji fuzzy finder cli written in rust 🦀✨
-repo: SyedAhkam/moji
+repo: sedbytes/moji
 category: Maintained
 tech: [rust]

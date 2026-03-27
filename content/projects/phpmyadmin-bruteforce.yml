@@ -1,5 +1,5 @@
 name: PHPMyAdmin Bruteforce
 tagline: Automated bruteforce of PHPMyAdmin
-repo: SyedAhkam/phpmyadmin-bruteforce
+repo: sedbytes/phpmyadmin-bruteforce
 category: Experiments
 tech: [rust]

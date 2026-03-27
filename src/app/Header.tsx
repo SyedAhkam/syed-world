@@ -3,7 +3,7 @@ import Stdout from "@/components/common/Stdout";
 import ThemeSwitcher from "@/components/common/ThemeSwitcher";
 
 async function getLatestCommitHash() {
-  const response = await fetch("https://api.github.com/repos/SyedAhkam/syed-world/commits/main", {
+  const response = await fetch("https://api.github.com/repos/sedbytes/syed-world/commits/main", {
       method: "GET",
       headers: {
         "Authorization": `token ${process.env.GITHUB_ACCESS_TOKEN}`,
