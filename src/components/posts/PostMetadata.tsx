@@ -7,7 +7,7 @@ import { MdTimelapse } from "react-icons/md";
 
 export default function PostMetadata({ post }: { post: Post }) {
   return (
-    <div className="flex flex-col space-y-6 px-4">
+    <div className="flex flex-col space-y-6">
       <h1 className="mt-8 text-4xl font-bold text-blue">{post!.title}</h1>
 
       <div className="flex flex-row space-x-2">

@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 
-import { firaCode } from "@/fonts";
+import { firaCode, firaSans } from "@/fonts";
 
 import Header from "./Header";
 import Footer from "./Footer";
+import ScrollToBottom from "@/components/common/ScrollToBottom";
 
 import "./globals.css";
 
@@ -24,12 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${firaCode.variable} flex min-h-screen flex-col`}
+        className={`${firaCode.variable} ${firaSans.variable} flex min-h-screen flex-col`}
         data-theme="tokyo-night"
       >
         <Header />
         <main className="flex-1 basis-0">{children}</main>
         <Footer />
+        <ScrollToBottom />
       </body>
     </html>
   );

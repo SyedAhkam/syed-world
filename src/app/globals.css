@@ -5,6 +5,8 @@
 @custom-variant dark (&:is([data-theme="tokyo-night"] *));
 
 @theme {
+  --font-prose: var(--font-fira-sans), system-ui, sans-serif;
+
   /* Tokyo Night (dark) — default theme */
   --color-background: #0f0f14;
   --color-background-alt: #151521;

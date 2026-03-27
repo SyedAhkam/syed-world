@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import PostMetadata from "@/components/posts/PostMetadata";
 import PostContent from "@/components/posts/PostContent";
+import TableOfContents from "@/components/posts/TableOfContents";
 
 type Params = {
   slug: string;
@@ -47,12 +48,15 @@ export default async function PostView(props: { params: Promise<Params> }) {
   }
 
   return (
-    <div className="flex h-full md:mx-16 md:gap-8">
-      <article className="flex w-full flex-col space-y-8 md:border md:border-dotted md:border-foreground">
+    <div className="flex h-full gap-8 mx-8 md:mx-16">
+      <article className="flex flex-1 flex-col space-y-8">
         <PostMetadata post={post!} />
-
         <PostContent post={post!} />
       </article>
+
+      <aside className="sticky top-8 hidden h-fit w-56 shrink-0 lg:block">
+        <TableOfContents toc={post!.toc} />
+      </aside>
     </div>
   );
 }

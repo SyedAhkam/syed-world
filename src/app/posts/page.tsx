@@ -18,7 +18,7 @@ export default function Posts() {
   }
 
   return (
-    <div className="border-1 mx-8 flex flex-col border border-foreground md:mx-16">
+    <div className="mx-8 flex flex-col md:mx-16">
       <div className="flex flex-1 flex-col">
         {posts.length === 0 && (
           <div className="flex flex-1 flex-col items-center justify-center">

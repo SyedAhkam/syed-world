@@ -70,14 +70,14 @@ export default async function ProjectCard({ project }: { project: Project  }) {
             </div>
           </div>
 
-          <p className="text-lg">
+          <p className="max-w-xl text-lg">
             {project.tagline}
           </p>
         </div>
 
         <div className="flex flex-row gap-1">
           {icons.map((Icon, idx) => (
-            <Icon key={idx} className="text-6xl" />
+            <Icon key={idx} className="text-3xl" />
           ))}
         </div>
       </div>

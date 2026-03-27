@@ -33,7 +33,7 @@ export default function DynamicAvatar() {
         alt={currAvatar.alt}
         fill
         unoptimized={currAvatar.src.endsWith(".gif")}
-        className={clsx("object-cover object-center", currAvatar.extendClass)}
+        className={clsx("cursor-pointer object-cover object-center", currAvatar.extendClass)}
         onClick={(() => setCurrAvatarIdx((prev) => (prev + 1) % avatars.length))}
       />
     </motion.div>

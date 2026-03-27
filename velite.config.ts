@@ -51,6 +51,7 @@ const posts = defineCollection({
       date: s.isodate(),
       cover: s.image().optional(),
       metadata: s.metadata(),
+      toc: s.toc(),
       content: s.mdx({gfm: true}),
       draft: s.boolean().default(false)
     })
