@@ -22,7 +22,11 @@ const destinations = [
   { name: "Contact", path: "mailto:smahkam57@gmail.com" },
 ];
 
-function MobileMenu({ children }: { children: React.ReactNode }) {
+function MobileMenu({
+  children,
+}: {
+  children: (close: (open: boolean) => void) => React.ReactNode;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
@@ -58,7 +62,7 @@ function MobileMenu({ children }: { children: React.ReactNode }) {
           {...getFloatingProps()}
           className="flex flex-col items-center gap-4 rounded-sm bg-background p-4 shadow-md drop-shadow"
         >
-          {children}
+          {children(setIsOpen)}
 
           {/* ThemeSwitcher for mobile */}
           <ThemeSwitcher embedInMobile={true} />
@@ -71,13 +75,20 @@ function MobileMenu({ children }: { children: React.ReactNode }) {
 export default function NavLinks() {
   const pathName = usePathname();
 
-  const Links = ({ isLargeScreen = false }: { isLargeScreen?: boolean }) => {
+  const Links = ({
+    isLargeScreen = false,
+    onNavigate,
+  }: {
+    isLargeScreen?: boolean;
+    onNavigate?: () => void;
+  }) => {
     return (
       <>
         {destinations.map((destination, idx) => (
           <Link
             key={idx}
             href={destination.path}
+            onClick={onNavigate}
             className={`${
               pathName === destination.path ? "text-foreground" : "text-white"
             } ${isLargeScreen ? "text-xl" : ""} hover:underline`}
@@ -93,7 +104,7 @@ export default function NavLinks() {
     <>
       <div className="md:hidden">
         <MobileMenu>
-          <Links />
+          {(close) => <Links onNavigate={() => close(false)} />}
         </MobileMenu>
       </div>
 

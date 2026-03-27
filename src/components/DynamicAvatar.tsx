@@ -19,13 +19,14 @@ export default function DynamicAvatar() {
   return (
     <motion.div
       key={currAvatarIdx}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{
         ease: "linear",
         duration: 2,
         opacity: { duration: 1 }
       }}
-      className="hover:cursor-pointer opacity-50"
+      className="hover:cursor-pointer"
     >
       <Image
         src={currAvatar.src}

@@ -1,7 +1,7 @@
 import DynamicAvatar from "@/components/DynamicAvatar";
 import dayjs from "dayjs";
 
-const age = -dayjs(new Date(2003, 10, 3)).diff(dayjs(), 'years');
+const age = dayjs().diff(dayjs('2003-10-03'), 'years');
 
 export default function Home() {
   return (
