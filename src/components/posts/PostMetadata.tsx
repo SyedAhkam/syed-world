@@ -18,7 +18,7 @@ export default function PostMetadata({ post }: { post: Post }) {
         <div className="flex flex-row items-center">
           <IoMdCalendar className="mr-2 text-2xl text-green" />
 
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted">
             {formatRelative(new Date(post!.date), new Date())}
           </p>
         </div>
@@ -26,7 +26,7 @@ export default function PostMetadata({ post }: { post: Post }) {
         <div className="flex flex-row items-center">
           <MdTimelapse className="mr-2 text-2xl text-green" />
 
-          <p className="text-sm text-gray-500">{post!.metadata.readingTime} min</p>
+          <p className="text-sm text-muted">{post!.metadata.readingTime} min</p>
         </div>
       </div>
 

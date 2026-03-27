@@ -58,7 +58,7 @@ export default async function ProjectCard({ project }: { project: Project  }) {
         <div className="flex flex-col gap-2">
           <div className="flex flex-row items-center gap-2">
             <a href={project.url} target="_blank" className="flex flex-row items-center gap-2">
-              <h3 className="text-white text-2xl">{project.name}</h3>
+              <h3 className="text-foreground text-2xl">{project.name}</h3>
                 <LuExternalLink />
             </a>
 

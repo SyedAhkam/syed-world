@@ -23,7 +23,7 @@ export default function Stdout({ commitHash }: { commitHash: string }) {
       case "error":
         return "text-red";
       default:
-        return "text-white";
+        return "text-foreground";
     }
   };
 

@@ -9,6 +9,7 @@
   --color-background: #0f0f14;
   --color-background-alt: #151521;
   --color-foreground: #c0caf5;
+  --color-muted: #565a6e;
   --color-red: #f7768e;
   --color-orange: #ff9e64;
   --color-yellow: #e0af68;
@@ -23,8 +24,9 @@
 @layer base {
   [data-theme="tokyo-night-light"] {
     --color-background: #c0caf5;
-    --color-background-alt: #565a6e;
+    --color-background-alt: #d0d5f7;
     --color-foreground: #0f0f14;
+    --color-muted: #787c99;
     --color-red: #f52a65;
     --color-orange: #b15c00;
     --color-yellow: #8c6c3e;
@@ -59,7 +61,7 @@ body {
 [data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
   counter-increment: line;
   content: counter(line);
-  @apply mr-4 inline-block w-4 text-right text-gray-500;
+  @apply mr-4 inline-block w-4 text-right text-muted;
 }
 
 [data-rehype-pretty-code-figure] pre [data-line] {
@@ -67,12 +69,12 @@ body {
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-line] {
-  background: rgba(200, 200, 255, 0.1);
+  background: color-mix(in srgb, var(--color-muted) 20%, transparent);
 }
 
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
-  @apply rounded bg-zinc-600/50;
-  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+  @apply rounded bg-muted/50;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-muted) 50%, transparent);
 }
 
 [data-rehype-pretty-code-figure] [data-chars-id] {

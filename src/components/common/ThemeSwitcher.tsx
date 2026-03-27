@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useLocalStorage from "use-local-storage";
 
 export default function ThemeSwitcher({
@@ -9,6 +9,7 @@ export default function ThemeSwitcher({
   embedInMobile?: boolean;
 }) {
   const [theme, setTheme] = useLocalStorage("theme", "tokyo-night");
+  const [mounted, setMounted] = useState(false);
 
   const themes = [
     {
@@ -20,6 +21,10 @@ export default function ThemeSwitcher({
       value: "tokyo-night-light",
     },
   ];
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     document.body.dataset.theme = theme;
@@ -36,7 +41,7 @@ export default function ThemeSwitcher({
           key={idx}
           onClick={() => setTheme(t.value)}
           className={`${!embedInMobile ? "text-xl" : ""} ${
-            theme == t.value ? "text-foreground" : "text-white"
+            mounted && theme === t.value ? "text-foreground" : "text-muted"
           } hover:underline`}
         >
           {t.name}
