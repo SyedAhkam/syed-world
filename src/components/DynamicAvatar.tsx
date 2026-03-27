@@ -17,25 +17,24 @@ export default function DynamicAvatar() {
   const currAvatar = avatars.at(currAvatarIdx)!;
 
   return (
-    <motion.div
-      key={currAvatarIdx}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        ease: "linear",
-        duration: 2,
-        opacity: { duration: 1 }
-      }}
-      className="hover:cursor-pointer"
-    >
-      <Image
-        src={currAvatar.src}
-        alt={currAvatar.alt}
-        fill
-        unoptimized={currAvatar.src.endsWith(".gif")}
-        className={clsx("cursor-pointer object-cover object-center", currAvatar.extendClass)}
-        onClick={(() => setCurrAvatarIdx((prev) => (prev + 1) % avatars.length))}
-      />
-    </motion.div>
+    <div className="relative w-full h-full cursor-pointer" onClick={() => setCurrAvatarIdx((prev) => (prev + 1) % avatars.length)}>
+      {avatars.map((avatar, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: idx === 0 ? 1 : 0 }}
+          animate={{ opacity: idx === currAvatarIdx ? 1 : 0 }}
+          transition={{ ease: "linear", duration: 0.4 }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={avatar.src}
+            alt={avatar.alt}
+            fill
+            unoptimized={avatar.src.endsWith(".gif")}
+            className={clsx("object-cover object-center", avatar.extendClass)}
+          />
+        </motion.div>
+      ))}
+    </div>
   )
 }
