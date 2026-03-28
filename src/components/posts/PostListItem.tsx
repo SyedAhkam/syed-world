@@ -8,7 +8,7 @@ export default function PostListItem({ post }: { post: Post }) {
   return (
     <Link href={`/posts/${post.category}/${post.slug}`}>
       <div className="space-y-4 border-b border-dotted border-foreground py-4 pr-4 transition-colors hover:bg-background-alt">
-        <h3 className="text-xl font-bold text-blue">
+        <h3 className="break-all text-base font-bold text-blue md:text-xl">
           {post.category}/{post.slug}
         </h3>
 

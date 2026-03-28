@@ -8,6 +8,7 @@ export default function Prompt() {
   const pathName = usePathname();
 
   const page = getPageFromPath(pathName);
+  const [command, ...args] = page.split(" ");
 
   return (
     <div className="flex flex-col">
@@ -16,7 +17,12 @@ export default function Prompt() {
         <p className="text-foreground">syed-world</p>
 
         <p className="ml-2 text-green">{"~>"}</p>
-        <p className="ml-2 truncate text-blue">./{page}</p>
+        <p className="ml-2 shrink-0 text-blue">./{command}</p>
+        {args.length > 0 && (
+          <p className="ml-2 hidden min-w-0 flex-1 truncate text-blue/70 md:block">
+            {args.join(" ")}
+          </p>
+        )}
       </div>
     </div>
   );

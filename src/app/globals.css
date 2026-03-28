@@ -119,9 +119,33 @@ body {
     "Liberation Mono", "Courier New", monospace;
 }
 
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-muted) var(--color-background-alt);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-foreground);
+}
+
 /* Code Highlighting */
 [data-rehype-pretty-code-figure] pre {
-  @apply px-0;
+  @apply overflow-x-auto px-0;
 }
 
 /* Shiki multi-theme switching via body[data-theme] */

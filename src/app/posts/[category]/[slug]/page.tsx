@@ -49,7 +49,7 @@ export default async function PostView(props: { params: Promise<Params> }) {
 
   return (
     <div className="flex h-full gap-8 mx-8 md:mx-16">
-      <article className="flex flex-1 flex-col space-y-8">
+      <article className="flex min-w-0 flex-1 flex-col space-y-8">
         <PostMetadata post={post!} />
         <PostContent post={post!} />
       </article>

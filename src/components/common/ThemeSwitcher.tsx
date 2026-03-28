@@ -47,7 +47,7 @@ export default function ThemeSwitcher({
   }, [theme]);
 
   return (
-    <div className={`${!embedInMobile ? "hidden md:flex" : "flex"}`}>
+    <div className={`${!embedInMobile ? "hidden lg:flex" : "flex"}`}>
       <select
         value={mounted ? theme : "tokyo-night"}
         onChange={(e) => setTheme(e.target.value)}
