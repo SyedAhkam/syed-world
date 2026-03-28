@@ -1,15 +1,15 @@
 export default function Stdout({ commitHash }: { commitHash: string }) {
   const messages = [
     {
-      text: <>Serving commit: <em>{commitHash}</em></>,
+      text: <>Linux syed-world 1.0.0 #1 SMP (commit <em>{commitHash}</em>)</>,
       type: "warning",
     },
     {
-      text: `Loaded into memory`,
+      text: "systemd[1]: starting syed-world.service...",
       type: "info",
     },
     {
-      text: "Rendering requested page",
+      text: "systemd[1]: reached target multi-user.target",
       type: "info",
     },
   ];

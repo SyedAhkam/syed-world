@@ -37,10 +37,7 @@ export default async function CategoryPage({
   }
 
   return (
-    <div className="mx-8 flex flex-col border border-foreground md:mx-16">
-      <div className="border-b border-foreground px-4 py-3 text-sm text-gray-500">
-        category: <span className="text-green">{category}</span>
-      </div>
+    <div className="mx-8 flex flex-col md:mx-16">
       <div className="flex flex-1 flex-col">
         {posts.map((post) => (
           <PostListItem key={post.slug} post={post} />

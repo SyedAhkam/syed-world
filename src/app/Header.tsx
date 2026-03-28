@@ -22,8 +22,8 @@ export default async function Header() {
   return (
     <nav className="m-8 flex flex-row items-start md:m-16">
       <div className="flex-1 space-y-1">
-        <Prompt />
         <Stdout commitHash={latestCommitHash} />
+        <Prompt />
       </div>
 
       <div className="flex items-center gap-4">

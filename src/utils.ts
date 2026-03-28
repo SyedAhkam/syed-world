@@ -1,18 +1,24 @@
 export const getPageFromPath = (pathName: string) => {
   switch (pathName) {
     case "/":
-      return "index";
+      return "whoami";
     case "/posts":
-      return "posts";
+      return "ls -la posts";
+    case "/projects":
+      return "ls -la projects";
     case "/about":
       return "about";
     case "/contact":
       return "contact";
     default:
       if (pathName.startsWith("/posts")) {
-        const postSlug = pathName.split("/")[3];
+        const [, , category, postSlug] = pathName.split("/");
+        return `cat posts/${category}/${postSlug}`;
+      }
 
-        return `post --slug ${postSlug}`;
+      if (pathName.startsWith("/categories")) {
+        const category = pathName.split("/")[2];
+        return `ls -la /categories/${category}`;
       }
 
       return pathName.slice(1);
