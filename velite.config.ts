@@ -31,10 +31,14 @@ const projects = defineCollection({
     .transform(async data => {
       const commits = await getCommits(data.repo);
 
+      const latestCommitDate = commits[0].commit.committer.date;
+      const initialCommit = commits.pop().commit.committer.date;
+
       return {
         ...data,
         url: `https://github.com/${data.repo}`,
-        initialCommit: commits.pop().commit.committer.date
+        initialCommit,
+        latestCommitDate,
       }
     })
 });

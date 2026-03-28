@@ -10,7 +10,7 @@ async function getLatestCommitHash() {
         "Authorization": `token ${process.env.GITHUB_ACCESS_TOKEN}`,
         "Accept": "application/vnd.github.VERSION.sha"
       },
-      cache: "force-cache"
+      next: { revalidate: 86400 }
     });
 
   return (await response.text()).slice(0, 7)
@@ -21,7 +21,7 @@ export default async function Header() {
 
   return (
     <nav className="m-8 flex flex-row items-start md:m-16">
-      <div className="flex-1 space-y-1">
+      <div className="flex-1 space-y-2">
         <Stdout commitHash={latestCommitHash} />
         <Prompt />
       </div>

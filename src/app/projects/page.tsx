@@ -8,19 +8,24 @@ export const metadata = {
 }
 
 export default function Projects() {
-  const projectsByCategory: Map<string, Project[]> = groupBy(allProjects, p => p.category);
+  const categoryOrder = ["Latest", "Maintained", "Co-Authored", "Experiments", "Hacked upon", "Archived"];
+  const projectsByCategory: Map<string, Project[]> = new Map(
+    Array.from(groupBy(allProjects, p => p.category))
+      .sort(([a], [b]) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b))
+      .map(([category, projects]) => [
+        category,
+        projects.sort((a, b) => new Date(b.latestCommitDate).getTime() - new Date(a.latestCommitDate).getTime())
+      ])
+  );
 
   return (
-    <div className="flex flex-col mx-4 md:mx-16 gap-8">
+    <div className="flex flex-col mx-8 md:mx-16">
       {Array.from(projectsByCategory, ([category, projects], idx) => (
-        <div key={idx} className="flex flex-col gap-8">
-          <h2 className="text-3xl font-bold text-purple">{category}</h2>
-
-          <div className="flex flex-col gap-4 lg:grid md:grid-cols-2">
-            {projects.map((project, idx) => (
-              <ProjectCard key={idx} project={project} />
-            ))}
-          </div>
+        <div key={idx} className="flex flex-col mb-12">
+          <h2 className="text-xl font-bold text-purple mb-4">{category}</h2>
+          {projects.map((project, idx) => (
+            <ProjectCard key={idx} project={project} />
+          ))}
         </div>
       ))}
     </div>

@@ -1,0 +1,5 @@
+name: SignalRGB — Tapo Plugin
+tagline: A community plugin for SignalRGB that syncs TP-Link Tapo smart lights to your canvas lighting in real time
+repo: sedbytes/signalrgb-tapo
+category: Latest
+tech: [javascript]
