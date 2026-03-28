@@ -16,9 +16,9 @@ export default function Home() {
 
       <p className="w-4/5 text-center text-base font-medium md:w-2/3 md:text-lg lg:w-1/2 xl:w-1/3">
         <span className="text-orange">{ age }</span> y/o;<br/>
-        Rustacean 🦀;<br/>
-        FOSS Enthusiast;<br/>
-        Obsessed with <span className="text-purple">Tokyo</span> <span className="text-blue">Night</span>;
+        <span className="text-green">Rustacean</span> 🦀;<br/>
+        <span className="text-purple">FOSS Enthusiast</span>;<br/>
+        <span className="text-cyan">Software Engineer</span> @ <a href="https://staicy.win" target="_blank" rel="noopener noreferrer" className="text-blue hover:underline">staicy.win</a>;
       </p>
     </div>
   );

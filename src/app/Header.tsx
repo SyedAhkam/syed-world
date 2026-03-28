@@ -1,6 +1,7 @@
 import Prompt from "@/components/common/Prompt";
 import Stdout from "@/components/common/Stdout";
 import ThemeSwitcher from "@/components/common/ThemeSwitcher";
+import NavLinks from "@/components/common/NavLinks";
 
 async function getLatestCommitHash() {
   const response = await fetch("https://api.github.com/repos/sedbytes/syed-world/commits/main", {
@@ -25,7 +26,10 @@ export default async function Header() {
         <Stdout commitHash={latestCommitHash} />
       </div>
 
-      <ThemeSwitcher />
+      <div className="flex items-center gap-4">
+        <NavLinks mobileOnly />
+        <ThemeSwitcher />
+      </div>
     </nav>
   );
 }

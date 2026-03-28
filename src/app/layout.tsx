@@ -30,6 +30,7 @@ export default function RootLayout({
       >
         <Header />
         <main className="flex-1 basis-0">{children}</main>
+        <hr className="mt-8 w-full border-dotted border-muted/20" />
         <Footer />
         <ScrollToBottom />
       </body>

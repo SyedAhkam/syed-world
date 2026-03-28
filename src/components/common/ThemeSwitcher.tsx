@@ -33,7 +33,7 @@ export default function ThemeSwitcher({
       value: "github-dark",
     },
     {
-      name: "hacker",
+      name: "hecker",
       value: "hacker",
     },
   ];
